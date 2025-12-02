@@ -110,4 +110,4 @@ My goal is clear: **identify threats before they become critical incidents**, by
 
 ---
 
-<h3 align="center">🔐 "La cybersécurité, c’est transformer les menaces en opportunités d’apprentissage." </h3>
+<h3 align="center">🔐 "Cybersecurity means transforming threats into learning opportunities." </h3>
