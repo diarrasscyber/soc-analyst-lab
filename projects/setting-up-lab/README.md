@@ -22,7 +22,6 @@ This repository contains a complete step-by-step guide to building a SOC Analyst
 - [16. Configure FTP Server (Server 2019)](#16-configure-ftp-server-server-2019)
 - [17. Deploy LuxuryTreats Website](#17-deploy-luxurytreats-website)
 - [18. Edit Hosts File (Windows & Linux)](#18-edit-hosts-file-windows--linux)
-- [19. Create VM Snapshots](#19-create-vm-snapshots)
 
 ---
 
@@ -35,12 +34,18 @@ Configure the virtual network adapter:
 2. Select **VMnet8**
 3. Click **Change Settings**
 4. Select VMnet8
-5. Set IP address: `10.10.1.0/24`
+5. Set IP address: `192.168.103.0/24`
+ <img width="666" height="48" alt="image" src="https://github.com/user-attachments/assets/89cbd773-3eb7-4ea0-867f-0c28cc97f8ed" />
+ 
 6. Open **NAT Settings**
-   - Gateway IP: `10.10.1.1`
+   - Gateway IP: `192.168.103.1`
+<img width="470" height="152" alt="image" src="https://github.com/user-attachments/assets/5bf8a927-eea0-4e4e-b587-6a7186979864" />
+ 
 7. Open **DHCP Settings**
-   - Start: `10.10.1.2`
-   - End: `10.10.1.254`
+   - Start: `192.168.103.2`
+   - End: `192.168.103.254`
+<img width="363" height="199" alt="image" src="https://github.com/user-attachments/assets/051545bd-67b4-48b0-aaa8-8dbc48d4254a" />
+
 8. Apply and confirm.
 
 ---
@@ -48,14 +53,20 @@ Configure the virtual network adapter:
 # 2. Installing & Configuring Windows Server 2022 (SIEM1)
 
 ### Install Windows Server 2022 VM
-Rename the computer:
+-install windows server 2022
+
+### Rename the computer
+- right click on the started menu
+- system
+- renamed this PC to 
 - **SIEM1**
 
 ### Static IP Configuration
-- IP: `10.10.1.22`
+- IP: `192.168.103.22`
 - Mask: `255.255.255.0`
-- Gateway: `10.10.1.1`
+- Gateway: `192.168.103.1`
 - DNS: `8.8.8.8`
+<img width="455" height="442" alt="image" src="https://github.com/user-attachments/assets/3fd8788a-f58b-410d-b515-31992c9552e9" />
 
 Disable automatic Server Manager startup:
 - Server Manager → Manage → Server Manager Properties
@@ -65,24 +76,32 @@ Disable automatic Server Manager startup:
 # 3. Configuring Windows Server 2019
 
 ### Install Windows Server 2019  
-Rename PC:
+-install windows server 2019
+
+### Rename the computer
+- right click on the started menu
+- system
+- renamed this PC to 
 - **windows19**
 
 ### Static IP
-- IP: `10.10.1.19`
+- IP: `192.168.103.19`
 - Mask: `255.255.255.0`
-- Gateway: `10.10.1.1`
+- Gateway: `192.168.103.1`
 - DNS: `8.8.8.8`
 
-Disable Server Manager on startup.
+Disable automatic Server Manager startup:
+- Server Manager → Manage → Server Manager Properties
 
 ---
 
 # 4. Installing Windows 10/11 VM
 
-- Add a second hard disk  
+- Add a second hard disk througt VMware
+ <img width="381" height="316" alt="image" src="https://github.com/user-attachments/assets/2a7a2a8a-d447-4a16-a150-cc3e36c2918a" />
+
 - Rename machine (Win10 or Win11)
-- Assign static IP: `10.10.1.11`
+- Assign static IP: `192.168.103.11`
 - Create new disk volume:
   Windows + X → Disk Management → Create New Simple Volume
 
@@ -90,15 +109,15 @@ Disable Server Manager on startup.
 
 # 5. Installing Windows 10/11 VM (SIEM2)
 
-- Create new VM  
+- Create new VM  and install windows 10 or 11
 - Rename → **SIEM2**
-- Assign static IP: `10.10.1.18`
+- Assign static IP: `192.168.103.18`
 
 ---
 
 # 6. Disable Internet Explorer Enhanced Security
 
-On **Server 2022 & 2019**:
+On **Server 2022 and 2019**:
 - Server Manager → Local Server → IE Enhanced Security Configuration  
 Disable for:
 - Administrators  
@@ -125,7 +144,7 @@ Enable:
 - FTP Server  
 
 When prompted for installation source:
-- Select **DVD → sources/SXS**
+- at the specifying another source path, open a file explorer, click on This PC, open the Windows Server 2019 installation DVD, enter the SOURCES folder, then SXS and copy the link **DVD → sources/SXS**
 
 Restart.
 
@@ -135,8 +154,10 @@ Restart.
 
 - Install ParrotOS or Kali Linux  
 - Run `ifconfig` to view interface name  
-- Assign static IP: `10.10.1.13`
-- Reboot using `reboot`
+- Assign static IP: `192.168.103.13`
+  <img width="700" height="354" alt="image" src="https://github.com/user-attachments/assets/6109c84e-c42e-464d-a866-b246bffd2094" />
+
+- Reboot using `reboot` on the terminal
 
 ---
 
@@ -163,7 +184,7 @@ Install:
 
 ---
 
-# 10. Disable Firewall & Defender Antivirus on SIEM1
+# 10. Disable Firewall & Defender Antivirus on SIEM1(windows server 2022)
 
 ### Firewall
 - Control Panel → Windows Defender Firewall → Turn Off  
@@ -180,7 +201,7 @@ Enable:
 
 ---
 
-# 11. Share & Map SOC-Tools Directory (SIEM1)
+# 11. Share & Map SOC-Tools Directory (SIEM1:(windows server 2022))
 
 On **SIEM1**:
 
@@ -191,6 +212,137 @@ On **SIEM1**:
 5. Enable Network Discovery  
 6. Share folder → Permissions → Everyone = Read/Write  
 
-On all machines (Win10, Win11, Server2019, SIEM2):
+On all machines (Win10, Win11, Server2019, SIEM2, kali linux):
 - Map drive:
+- that will allow to get access on the drive througt all machines
+
+---
+
+# 12. Install Required Applications
+
+## ✔️ On SIEM1(windows server 2022):
+- JDK  
+- Notepad++  
+- Google Chrome  
+- Mozilla Firefox  
+- WinPcap  
+- Splunk Enterprise  
+
+## ✔️ On Windows Server 2019(windows19):
+- JDK  
+- Notepad++  
+- Google Chrome  
+- Mozilla Firefox  
+- WinPcap  
+
+## ✔️ On Windows 10:
+- JDK  
+- Notepad++  
+- Google Chrome  
+- Mozilla Firefox  
+- WinPcap  
+- FileZilla  
+
+## ✔️ On SIEM2(windows 10 or 11):
+- JDK  
+- Notepad++  
+- Google Chrome  
+- Mozilla Firefox  
+- WinPcap  
+
+---
+
+# 13. Create User Accounts (SIEM2)
+
+Create the following users:
+
+-	Control Panel → Add User → Create accounts Martin, Jason, Shiela
+-	Make Jason an Administrator
+
+ **Martin**  
+ **Jason** → *Administrator*  
+ **Shiela**
+
+---
+
+# 14. Install SQL Server Express 2017
+
+### Steps:
+1. Install **SQL Server 2017 Express**  
+2. Choose **Custom Installation**  
+3. Select **all features**, except *Machine Learning Services*  
+4. Go to **Database Engine Configuration** → select **Mixed Mode** → set admin password  
+5. Install **SQL Server Management Studio (SSMS)**  
+6. Restart the VM and connect to SQL Server  
+
+---
+
+# 15. Test Network Connectivity
+
+Run ping commands between all machines to ensure communication:
+
+ping 192.168.103.22
+ping 192.168.103.19
+ping 192.168.103.11
+ping 192.168.103.13
+ping 192.168.103.18
+
+# 16. Configure FTP Server (Windows Server 2019)
+
+Open: **IIS Manager → Sites → Add FTP Site**
+
+### FTP Configuration
+- **Name:** `demoFTPsite`
+- **Path:** `C:\FTP`
+- **IP:** `192.168.103.19`
+- **Port:** `21`
+- **SSL:** None
+- **Authentication:** Basic  
+- **Authorization:** All Users → Read/Write
+
+---
+
+# 17. Deploy LuxuryTreats Website on Windows Server 2019
+
+Open: **IIS Manager → Sites → add new website
+
+## WEB SITE Configuration
+- Extract Project Files
+Extract the **LuxuryTreats** folder.
+- Copy LuxuryTreats Website Files
+Copy the luxurytreat folder and paste it in the C drive: in inetpub folder then wwwroot C:\inetpub\wwwroot\LuxuryTreats
+- Edit the *web.config* File with Notepad++ finding on C:\inetpub\wwwroot\LuxuryTreats
+- At line 31 delete (providerName="System.Data.SqlClient")
+- At the same line 31 replace windowsserver2012 with the name of our machine: windows19\SQLEXPRESS then save and close
+
+- Open SQL Server management studio then click connect
+- In the left pane right click on database then new database
+- At database name level enter: hotels 
+- Then in the left-handed pane click on option and ensure that at the recorvery model level choose simple then ok 
+- We should see the hotel database when we expand DATABASE in the left pane
+- In the lab prerequisite folder → website folder → DBscript folder → edit the scrip file with notepad++
+- ctrl+A then ctrl+C to copy the contents of the script file
+- Return to sql server management studio → select the HOTELS database → click on new query → paste the content of the script → execute to create the tables 
+- Start menu → administration tool → IIS internet service manager → in the left pane expand windows19 → right click on site → add a website
+- In the website name field: LuxuryTreats
+- Physical path: choose drive c:(C:\inetpub\wwwroot\LuxuryTreats)
+- IP address choose the address of the machine port 80
+- Host name: www.luxurytreats.com → click ok
+
+# 18. Configure Hosts File on all Windows & Linux 
+
+## Windows
+Edit the hosts file:
+-	Edit: C:\Windows\System32\drivers\etc\hosts with notepad++ and add:
+192.168.103.19   www.luxurytreats.com
+127.0.0.1        fonts.googleapis.com
+<img width="768" height="196" alt="image" src="https://github.com/user-attachments/assets/0a55c0e2-5970-4afa-8c65-16fb2fe3d1ee" />
+
+## Kali/Parrot:
+•	Edit /etc/hosts with nano or vim
+•	Add the same entries
+<img width="665" height="86" alt="image" src="https://github.com/user-attachments/assets/009c43c6-23f6-4234-8fcf-f1c6c2d9be8e" />
+
+Open browser → Visit www.luxurytreats.com
+
 
