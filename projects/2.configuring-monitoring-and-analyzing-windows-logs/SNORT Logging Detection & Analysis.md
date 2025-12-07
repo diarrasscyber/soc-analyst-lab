@@ -45,16 +45,25 @@ Ping the other machines to confirm network communication.
 -Go to the Snort directory:
 cd /etc/snort
 ls
+
 -Backup the configuration file:sudo cp snort.conf /etc/snort/snort_backup.conf
+
 -Open Snort configuration file: sudo nano /etc/snort/snort.conf
+
 -Enable line numbering in Nano:
 ALT + N
 Edit line 65
-Replace: any With:192.168.103.0/24 for all network or used 192.168.103.19/24 for only windows19 where IIS and FTP server are installed
-Save and exit.
+
+-Replace: any With:192.168.103.0/24 for all network or used 192.168.103.19/24 for only windows19 where IIS and FTP server are installed
+
+-Save and exit
+
 -Validate Snort Configuration: sudo snort -T -c /etc/snort/snort.conf
+
 -Start Snort in Alert Mode: sudo snort -A console -q -c /etc/snort/snort.conf -i ens33
+
 -Perform Network Scan Attack from Kali:nmap 192.168.103.200
+
 -Snort should display alerts reacting to the scan
 
 ---
@@ -63,27 +72,37 @@ Save and exit.
 
 -Navigate to the rules directory:cd /etc/snort/rules
 
+-Edit the local.rules file:sudo nano /etc/snort/rules/local.rules
+
 **Add the following detection rules:**
-# ICMP attempt on Windows Server 2019
+
+**ICMP attempt on Windows Server 2019**
+
 alert icmp any any -> 192.168.103.19 any (msg:"ICMP connection attempt"; itype:8; sid:100001; rev:1;)
 
-# ICMP attempt on SIEM1 (Windows Server 2022)
+**ICMP attempt on SIEM1 (Windows Server 2022)**
+
 alert icmp any any -> 192.168.103.22 any (msg:"ICMP connection attempt"; itype:8; sid:100002; rev:1;)
 
-# ICMP attempt on SIEM2 (Windows 10)
+**ICMP attempt on SIEM2 (Windows 10)**
+
 alert icmp any any -> 192.168.103.18 any (msg:"ICMP connection attempt"; itype:8; sid:100003; rev:1;)
 
-# FTP connection attempt on Windows Server 2019
+**FTP connection attempt on Windows Server 2019**
+
 alert icmp any any -> 192.168.103.19 21 (msg:"FTP connection attempt"; itype:8; sid:100004; rev:1;)
 
-# Web connection attempt on Windows Server 2019
+**Web connection attempt on Windows Server 2019**
+
 alert icmp any any -> 192.168.103.19 80 (msg:"WEB connection attempt"; itype:8; sid:100005; rev:1;)
 
-# ICMP attempt on Snort Server
+**ICMP attempt on Snort Server**
+
 alert icmp any any -> 192.168.103.200 any (msg:"ICMP connection attempt"; itype:8; sid:100006; rev:1;)
 
-Validate Configuration Again:sudo snort -T -c /etc/snort/snort.conf
-Restart Snort in alert mode:sudo snort -A console -q -c /etc/snort/snort.conf -i ens33
+-Validate Configuration Again:sudo snort -T -c /etc/snort/snort.conf
+
+-Restart Snort in alert mode:sudo snort -A console -q -c /etc/snort/snort.conf -i ens33
 
 ---
 
