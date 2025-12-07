@@ -10,9 +10,9 @@
 
 ## 👋 About me
 
-I am **DIARRASSOUBA Yacouba**, passionate about cybersecurity and specialized in **incident detection, analysis and response (SOC)**.
+I am **DIARRASSOUBA Yacouba**, passionate about cybersecurity and specialized in incident detection, analysis and response (SOC).
 
-My goal is clear: **identify threats before they become critical incidents**, by combining SIEM, IDS, EDR and Threat Hunting.
+My goal is clear: identify threats before they become critical incidents, by combining SIEM, IDS, EDR and Threat Hunting.
 
 ---
 
