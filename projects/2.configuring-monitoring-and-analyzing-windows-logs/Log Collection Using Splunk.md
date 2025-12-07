@@ -175,6 +175,36 @@ sudo ./splunk add monitor /var/log/snort
 
 This enables Splunk to forward all SNORT logs.
 
+**Modify inputs.conf in the Search App**
 
+Navigate to the app directory to modify this file:
 
+cd /opt/splunkforwarder/etc/apps/search/
+sudo su
+cd local
+sudo nano inputs.conf
 
+-before
+
+<img width="490" height="125" alt="image" src="https://github.com/user-attachments/assets/8dfbb0c3-1061-490a-a852-90498287427b" />
+
+-after
+
+<img width="545" height="170" alt="image" src="https://github.com/user-attachments/assets/2c967b30-bd3f-4fdf-ba88-f6377edd1305" />
+
+and save it
+
+**Restart the Splunk Forwarder Service**
+
+Return to the bin folder:
+
+cd /opt/splunkforwarder/bin
+sudo ./splunk restart
+
+Your Ubuntu SNORT machine is now successfully forwarding logs to Splunk Enterprise.
+
+You will have to restart the splunk service 
+Go to the splunk bin directory
+
+/opt/splunkforwarder/bin
+sudo ./splunk restart 
