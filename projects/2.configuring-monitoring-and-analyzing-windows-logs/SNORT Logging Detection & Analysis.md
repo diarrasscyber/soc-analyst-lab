@@ -95,6 +95,23 @@ Configure hosts file on Kali:sudo nano /etc/hosts
 Add:192.168.103.19 www.luxurytreats.com
     127.0.0.1 fonts.googleapis.com
 Save and exit
+
 **Perform SQL Injection from Kali**
 
+-Open a web browser
+-Visit: www.luxurytreats.com
+    Log in: Username: bob
+    Password: Passw0rd
+(Credentials may also be brute-forced earlier in the lab)
+Go to My Orders
+Click ORD-001
+In the address bar, inject:' OR 1=1;--
+If vulnerable, this reveals all of Bob's orders, confirming the SQL Injection
 
+# 7️⃣ Check Snort Alerts
+Back on the Ubuntu Snort machine, you should now see Snort alerts detecting:
+
+✔️ ICMP recon
+✔️ Nmap scan
+✔️ FTP/Web access attempts
+✔️ SQL Injection attack
