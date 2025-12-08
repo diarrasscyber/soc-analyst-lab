@@ -18,10 +18,14 @@ My goal is clear: identify threats before they become critical incidents, by com
 
 ## 🛠️ Core Skills
 
-### 🔹 Detection & Monitoring
-- Splunk (SPL, Dashboards, Alerts)
-- Wazuh (rules, log collection)
-- SNORT IDS (config, rules, alerts)
+### 🔹 Monitoring & Observability
+
+- Windows / Linux
+- Building dashboards rules, log collection and alert in Splunk, Kibana, and Wazuh
+- Real-time monitoring of log anomalies, system resources, and user behavior
+- Consolidation of multi-source events: endpoints, network, AD, cloud
+- Definition of thresholds, alerts, and security KPIs
+- SNORT IDS/IPS (config, rules, alerts)
 
 ### 🔹 Analysis & Investigation
 - Windows Event Logs  
@@ -33,11 +37,26 @@ My goal is clear: identify threats before they become critical incidents, by com
 - OSSIM 
 - VirusTotal / AbuseIPDB
 
-### 🔹 Environnements
-- Windows / Linux
-- Réseaux TCP/IP, DNS, HTTP, SSH
+### 🔹 Virtualization & Lab Environments
 
----
+Creation of full SOC/Attack Lab environments using:
+- VirtualBox, VMware Workstation, Hyper-V
+- Windows / Linux / Active Directory / SIEM
+
+Implementation of attack scenarios:
+- Bruteforce, reconnaissance, malware testing, basic exploitation
+
+### 🔹Incident Response (NIST / ANSSI)
+
+Mastery of the full incident response lifecycle:
+
+- Detection & analysis
+- Containment (machine isolation, blocking IP/domains)
+- Eradication (cleanup, patches, hardening)
+- Recovery
+- Reporting (post-mortem, root cause analysis)
+
+--- 
 
 ## 🌍 Find Me
 
