@@ -1,24 +1,29 @@
-<h1 align="center">🛡️ Portfolio SOC Analyst</h1>
+<h1 align="center">🛡️ Portfolio Network and Cybersecurity System Engineer</h1>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Cybersecurity-Blue%20Team-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Role-SOC%20Analyst-red?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Platforms-TryHackMe%20%7C%20HTB-green?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Système-Windows%20%7C%20Linux-purple?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Networking-TCP%2FIP%20%7C%20Cisco%20%7C%20Firewall-orange?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/SIEM-Splunk%20%7C%20Wazuh%20%7C%20ELK-blueviolet?style=for-the-badge" />
 </p>
 
 ---
 
 ## 👋 About me
 
-I am **DIARRASSOUBA Yacouba**, passionate about cybersecurity and specialized in incident detection, analysis and response (SOC).
+I am DIARRASSOUBA Yacouba, a passionate Network and Cybersecurity System Engineer with a strong focus on incident detection, analysis and response (SOC).
 
-My goal is clear: identify threats before they become critical incidents, by combining SIEM, IDS, EDR and Threat Hunting.
+I combine network engineering, systems administration, and defensive security to build, secure, and monitor modern infrastructures.
+My mission is clear: Detect threats before they become critical incidents, Strengthen systems and networks through monitoring, hardening, and automation, Leverage SIEM, IDS/IPS, EDR, and Threat Hunting techniques to protect infrastructures.
+With experience in network operations, system administration (Windows/Linux), virtualization, cloud environments, and security monitoring, I bring a comprehensive approach to defending and maintaining resilient environments.
 
 ---
 
 ## 🛠️ Core Skills
 
-### 🔹 Monitoring & Observability
+### 🔹 Monitoring 
 
 - Windows / Linux
 - Building dashboards rules, log collection and alert in Splunk, Kibana, and Wazuh
@@ -26,11 +31,6 @@ My goal is clear: identify threats before they become critical incidents, by com
 - Consolidation of multi-source events: endpoints, network, AD, cloud
 - Definition of thresholds, alerts, and security KPIs
 - SNORT IDS/IPS (config, rules, alerts)
-
-### 🔹 Analysis & Investigation
-- Windows Event Logs  
-- Sysmon  
-- Network Forensics (PCAP, Wireshark)
 
 ### 🔹 Threat Intelligence
 - MITRE ATT&CK  
@@ -56,7 +56,20 @@ My goal is clear: identify threats before they become critical incidents, by com
 - Recovery
 - Reporting (post-mortem, root cause analysis)
 
---- 
+### 🔹 Networking
+
+Protocols and Fundamentals:
+- Mastery of the TCP/IP model, DNS, DHCP, ARP, VLAN, static and dynamic routing (OSPF, and BGP for more advanced setups).
+
+Network Security:
+- Firewalls: Stateful filtering rules, NAT with pfsense
+- VPN: Deployment and maintenance of VPN tunnels (IPsec, SSL-VPN) for remote access or site-to-site connectivity.
+- Routing and Switching 
+  
+Security Architecture: Principles of least privilege, network segmentation (micro/macro segmentation), and DMZ zoning.
+
+### 🔹 Identity and Access Management (IAM)
+Via Active Directory AD, cloud solutions AZURE or OKTA , following the principles of least privilege.
 
 ## 🌍 Find Me
 
