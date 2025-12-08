@@ -39,16 +39,16 @@ My goal is clear: identify threats before they become critical incidents, by com
 
 ### 🔹 Virtualization & Lab Environments
 
-Creation of full SOC/Attack Lab environments using:
+  Creation of full SOC/Attack Lab environments using:
 - VirtualBox, VMware Workstation, Hyper-V
 - Windows / Linux / Active Directory / SIEM
 
-Implementation of attack scenarios:
+  Implementation of attack scenarios:
 - Bruteforce, reconnaissance, malware testing, basic exploitation
 
 ### 🔹Incident Response (NIST / ANSSI)
 
-Mastery of the full incident response lifecycle:
+  Mastery of the full incident response lifecycle:
 
 - Detection & analysis
 - Containment (machine isolation, blocking IP/domains)
